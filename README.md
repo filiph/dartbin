@@ -14,8 +14,10 @@
 5. Grab the `go_src/go_src` file – that's your executable – and rename it.
 
 For other architectures (like Windows when you're running this on Mac, or 
-vice versa), you'll need to provide a matching executable 
-(`dart bin/main.dart --dart /full/path/to/dart.exe file.snapshot`) 
-and you'll need to run the Go compilation with the correct GOOS and GOARCH 
-(`env GOPATH=/full/path/to/go_src GOOS=windows GOARCH=386 go build -v`)
+vice versa), you'll need to:
+
+* provide a matching executable 
+  (`dart bin/main.dart --dart /full/path/to/dart.exe file.snapshot`) 
+* run the Go compilation with the correct GOOS and GOARCH variables 
+  (`env GOPATH=/full/path/to/go_src GOOS=windows GOARCH=386 go build -v`)
 
