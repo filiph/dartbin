@@ -39,6 +39,7 @@ func run() int {
 		params = append(params, os.Args[i])
 	}
 	cmd := exec.Command(dartfn, params...)
+	cmd.Stdin = os.Stdin
 	cmd.Stderr = os.Stderr
 	cmd.Stdout = os.Stdout
 
