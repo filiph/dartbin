@@ -1,5 +1,7 @@
 # dartbin
 
+A tool for packaging Dart programs into standalone executables.
+
 ## Prerequisites
 
 * Go SDK installed
@@ -11,7 +13,8 @@
 3. Change to the `go_src` directory (`cd go_src`)
 4. Compile the Go package 
    (`env GOPATH=/full/path/to/go_src go build -v`)
-5. Grab the `go_src/go_src` file – that's your executable – and rename it.
+5. Grab the `go_src/go_src` file – that's your executable – and rename it 
+   to your liking.
 
 For other architectures (like Windows when you're running this on Mac, or 
 vice versa), you'll need to:
