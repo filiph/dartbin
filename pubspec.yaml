@@ -1,0 +1,10 @@
+name: dartbin
+description: A tool to package Dart programs into standalone executables.
+version: 0.0.1
+
+environment:
+  sdk: '>=1.23.0 <2.0.0'
+
+dependencies:
+  args: ^0.13.7
+  path: ^1.4.1
