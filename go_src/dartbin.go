@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"syscall"
 )
 
 func run() int {
@@ -44,9 +45,10 @@ func run() int {
 	cmd.Stdout = os.Stdout
 
 	runerr := cmd.Run()
-	if _, ok := runerr.(*exec.ExitError); ok {
-		// TODO: Use cmd.ProcessState.Sys() to get the actual exit code on Unix and Darwin.
-		return 1
+	if exitError, ok := runerr.(*exec.ExitError); ok {
+		// Use cmd.ProcessState.Sys() to get the actual exit code.
+		ws := exitError.Sys().(syscall.WaitStatus)
+		return ws.ExitStatus()
 	} else {
 		log.Fatal(runerr)
 		return 1
