@@ -9,9 +9,9 @@ import (
 )
 
 func run() int {
-	dir, err := ioutil.TempDir("", "dartbin")
-	if err != nil {
-		log.Fatal(err)
+	dir, temperr := ioutil.TempDir("", "dartbin")
+	if temperr != nil {
+		log.Fatal(temperr)
 		return 1
 	}
 
@@ -43,7 +43,11 @@ func run() int {
 	cmd.Stderr = os.Stderr
 	cmd.Stdout = os.Stdout
 
-	cmd.Run()
+	runerr := cmd.Run()
+	if runerr != nil {
+		log.Fatal(runerr)
+		return 1
+	}
 
 	var code int
 	if cmd.ProcessState.Success() {
