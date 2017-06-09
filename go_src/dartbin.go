@@ -44,16 +44,15 @@ func run() int {
 	cmd.Stdout = os.Stdout
 
 	runerr := cmd.Run()
-	if runerr != nil {
+	if _, ok := runerr.(*exec.ExitError); ok {
+		// TODO: Use cmd.ProcessState.Sys() to get the actual exit code on Unix and Darwin.
+		return 1
+	} else {
 		log.Fatal(runerr)
 		return 1
 	}
 
-	if cmd.ProcessState.Success() {
-		return 0
-	} else {
-		return 1
-	}
+	return 0
 }
 
 func main() {
