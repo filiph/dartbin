@@ -21,7 +21,7 @@ func run() int {
 
 	// dartvmbytes := [...]byte{1, 3, 3, 4, 5, 5, 6, 4, 4}
 
-	dartfn := filepath.Join(dir, "dart")
+	dartfn := filepath.Join(dir, dartexename)
 	if err := ioutil.WriteFile(dartfn, dartvmbytes[:], 0751); err != nil {
 		log.Fatal(err)
 		return 1
