@@ -45,6 +45,14 @@ func run() int {
 	cmd.Stdout = os.Stdout
 
 	runerr := cmd.Run()
+
+	if runerr == nil {
+		// The returned error is nil if the command runs,
+		// has no problems copying stdin, stdout, and stderr,
+		// and exits with a zero exit status.
+		return 0
+	}
+
 	if exitError, ok := runerr.(*exec.ExitError); ok {
 		// Use cmd.ProcessState.Sys() to get the actual exit code.
 		ws := exitError.Sys().(syscall.WaitStatus)
@@ -53,8 +61,6 @@ func run() int {
 		log.Fatal(runerr)
 		return 1
 	}
-
-	return 0
 }
 
 func main() {
