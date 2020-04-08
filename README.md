@@ -1,5 +1,14 @@
 # dartbin
 
+**DEPRECATION:** With the arrival of `dart2native`, the `dartbin` project is 
+no longer needed. The [`dart2native` tool](https://dart.dev/tools/dart2native)
+lets you easily create standalone executables for every supported platform.
+Those executables start and run faster, and are smaller, than anything
+that the `dartbin` project could have hoped for. I'm going to archive
+this project, for posterity. -- Filip
+
+---
+
 A tool for packaging Dart programs into standalone executables.
 
 ## Prerequisites
