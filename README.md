@@ -11,6 +11,8 @@ this project, for posterity. -- Filip
 
 A tool for packaging Dart programs into standalone executables.
 
+**NOTE**: Dart has now [announced support](https://medium.com/dartlang/dart2native-a76c815e6baf) for `dart2native`, an official way to compile Dart 2.6 code to stand-alone native executables. 
+
 ## Prerequisites
 
 * Go SDK installed
